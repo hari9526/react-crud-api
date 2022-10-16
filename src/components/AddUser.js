@@ -1,22 +1,27 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-const AddUser = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-  });
+const initialData = {
+  name: '',
+  email: '',
+};
+
+
+const AddUser = ({getUserData}) => {
+  const [formData, setFormData] = useState(initialData);
 
   const handleFormSubmit = async (e) => {
-    let response = axios.post("http://localhost:4000/posts", formData)
-                        .then( res => console.log(res))
-                        .catch( err => console.log(err)); 
+    axios.post("http://localhost:4000/posts", formData)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+    setFormData(initialData);
+    getUserData(); 
+  };
 
-    setFormData({
-      name: '',
-      email: '',
-    })
-  }
+
+
+
+
   return (
     <div className='container'>
       <div className='row'>

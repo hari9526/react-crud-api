@@ -1,18 +1,17 @@
 {
   "posts": [
     {
-      "name": "Hari",
-      "email": "hari",
+      "name": "sldkf",
+      "email": "sdlfkj",
       "id": 1
-    }
-  ],
-  "comments": [
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": "sldfj",
+      "email": "slkdjf",
+      "id": 2
     }
   ],
+  "comments": [],
   "profile": {
     "name": "typicode"
   }
