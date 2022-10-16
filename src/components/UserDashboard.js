@@ -10,7 +10,7 @@ const UserDashboard = ({ data, getUserData, handleDelete, handleEditData, setEdi
 
     return (
         <div>
-            <h1>User UserDashboard</h1>
+            <h1>User Dashboard</h1>
             <table className="table table-hover">
                 <thead>
                     <tr>
