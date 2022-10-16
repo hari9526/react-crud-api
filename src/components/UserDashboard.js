@@ -1,31 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import UpdateUser from './UpdateUser';
 
-const UserDashboard = ({data, setData, getUserData, handleDelete}) => {
-
-    // const [data, setData] = useState([]);
+const UserDashboard = ({ data, setData, getUserData, handleDelete, initialData, formData, setFormData, handleFormSubmit, handleEditData, setEditData, editData}) => {
 
     useEffect(() => {
         getUserData();
     }, []);
-
-
-    // const getUserData = async () => {
-
-    //     await axios.get('http://localhost:4000/posts')
-    //         .then(res => {
-    //             console.log(res.data);
-    //             setData(res.data); 
-    //         })
-    //         .catch(err => console.log(err));
-    // }
-
-    // const handleDelete = async (id) => {
-    //     await axios.delete(`http://localhost:4000/posts/${id}`)
-    //                 .then(res=> getUserData() )
-    //                 .then(err => console.log(err)); 
-
-    // }; 
 
 
     return (
@@ -48,15 +29,51 @@ const UserDashboard = ({data, setData, getUserData, handleDelete}) => {
                             <td>{user.name}</td>
                             <td>{user.email}</td>
                             <td
-                                style={{display: "flex", justifyContent: 'center', gap: '10px'}}
+                                style={{ display: "flex", justifyContent: 'center', gap: '10px' }}
                             >
-                                <button className='btn btn-info'>Edit</button>
-                                <button className='btn btn-danger' onClick={()=> handleDelete(user.id)}>Delete</button>
+                                <button className='btn btn-info'
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal"
+                                    onClick={() => {
+                                        setEditData({
+                                            id : user.id, 
+                                            name: user.name,
+                                            email: user.email,
+                                        });
+                                    }}
+                                >
+                                    Edit
+                                </button>
+                                <button className='btn btn-danger' onClick={() => handleDelete(user.id)}>Delete</button>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h1 className="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+                            <UpdateUser
+                                editData={editData}
+                                formData={formData}
+                                setFormData={setFormData}
+                                handleFormSubmit={handleFormSubmit}
+                                setEditData = {setEditData}
+
+                            />
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button className="btn btn-success" data-bs-dismiss="modal" onClick={handleEditData}>Confirm Edit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

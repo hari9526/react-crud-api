@@ -1,26 +1,11 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 
-const initialData = {
-  name: '',
-  email: '',
-};
-
-
-const AddUser = ({getUserData}) => {
-  const [formData, setFormData] = useState(initialData);
-
-  const handleFormSubmit = async (e) => {
-    axios.post("http://localhost:4000/posts", formData)
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
-    setFormData(initialData);
-    getUserData(); 
-  };
 
 
 
-
+const AddUser = ({getUserData, initialData, formData, setFormData, handleFormSubmit}) => {
+ 
 
   return (
     <div className='container'>
