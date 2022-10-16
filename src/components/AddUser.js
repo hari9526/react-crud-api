@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 
 
-const AddUser = ({getUserData, initialData, formData, setFormData, handleFormSubmit}) => {
+const AddUser = ({formData, setFormData, handleFormSubmit}) => {
  
 
   return (

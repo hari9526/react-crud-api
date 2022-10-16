@@ -2,12 +2,11 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import UpdateUser from './UpdateUser';
 
-const UserDashboard = ({ data, setData, getUserData, handleDelete, initialData, formData, setFormData, handleFormSubmit, handleEditData, setEditData, editData}) => {
+const UserDashboard = ({ data, setData, getUserData, handleDelete, handleEditData, setEditData, editData }) => {
 
     useEffect(() => {
         getUserData();
     }, []);
-
 
     return (
         <div>
@@ -36,7 +35,7 @@ const UserDashboard = ({ data, setData, getUserData, handleDelete, initialData, 
                                     data-bs-target="#exampleModal"
                                     onClick={() => {
                                         setEditData({
-                                            id : user.id, 
+                                            id: user.id,
                                             name: user.name,
                                             email: user.email,
                                         });
@@ -60,10 +59,7 @@ const UserDashboard = ({ data, setData, getUserData, handleDelete, initialData, 
                         <div className="modal-body">
                             <UpdateUser
                                 editData={editData}
-                                formData={formData}
-                                setFormData={setFormData}
-                                handleFormSubmit={handleFormSubmit}
-                                setEditData = {setEditData}
+                                setEditData={setEditData}
 
                             />
                         </div>

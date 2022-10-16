@@ -113,21 +113,14 @@ function App() {
     <div className="App">
 
       <AddUser
-        getUserData={getUserData}
-        initialData={initialData}
         formData={formData}
         setFormData={setFormData}
         handleFormSubmit={handleFormSubmit}
       />
       <UserDashboard
         data={data}
-        setData={setData}
         getUserData={getUserData}
         handleDelete={handleDelete}
-        initialData={initialData}
-        formData={formData}
-        setFormData={setFormData}
-        handleFormSubmit={handleFormSubmit}
         editData={editData}
         setEditData={setEditData}
         handleEditData={handleEditData}

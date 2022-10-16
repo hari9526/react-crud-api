@@ -1,6 +1,6 @@
 import React from 'react'
 
-const UpdateUser = ({editData, setEditData, formData, setFormData, handleFormSubmit}) => {
+const UpdateUser = ({ editData, setEditData }) => {
 
     return (
         <div>
