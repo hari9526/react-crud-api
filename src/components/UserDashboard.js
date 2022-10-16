@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import UpdateUser from './UpdateUser';
 
-const UserDashboard = ({ data, setData, getUserData, handleDelete, handleEditData, setEditData, editData }) => {
+const UserDashboard = ({ data, getUserData, handleDelete, handleEditData, setEditData, editData }) => {
 
     useEffect(() => {
         getUserData();
