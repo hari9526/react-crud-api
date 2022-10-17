@@ -4,17 +4,17 @@ import React, { useState } from 'react';
 
 
 
-const AddUser = ({formData, setFormData, handleFormSubmit}) => {
- 
+const AddUser = ({ formData, setFormData, handleFormSubmit }) => {
+
 
   return (
     <div className='container'>
-      <div className='row'>
-        <div className='col-md-7'>
-          <h1>Add User </h1>
-        </div>
+      <div className='row p-3 mx-auto my-auto'>
+
+        <h1>Add User </h1>
+
         <div className="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Name</label>
+      
           <input type="text"
             className="form-control"
             id="exampleFormControlInput1"
@@ -24,7 +24,7 @@ const AddUser = ({formData, setFormData, handleFormSubmit}) => {
           />
         </div>
         <div className="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Email address</label>
+          
           <input type="email"
             className="form-control"
             id="exampleFormControlInput1"
@@ -34,7 +34,7 @@ const AddUser = ({formData, setFormData, handleFormSubmit}) => {
           />
         </div>
         <div className='mb-3'>
-          <button className="btn btn-success" onClick={handleFormSubmit}>Add User</button>
+          <button className="btn btn-outline-info" onClick={handleFormSubmit}>Add User</button>
         </div>
 
 

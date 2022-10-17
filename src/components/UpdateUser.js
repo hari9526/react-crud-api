@@ -5,7 +5,6 @@ const UpdateUser = ({ editData, setEditData }) => {
     return (
         <div>
             <div className="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Name</label>
                 <input type="text"
                     className="form-control"
                     id="exampleFormControlInput1"
@@ -15,7 +14,6 @@ const UpdateUser = ({ editData, setEditData }) => {
                 />
             </div>
             <div className="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Email address</label>
                 <input type="email"
                     className="form-control"
                     id="exampleFormControlInput1"

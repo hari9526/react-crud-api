@@ -43,7 +43,7 @@ function App() {
     // await axios.delete(`http://localhost:4000/posts/${id}`)
     //   .then(res => getUserData())
     //   .then(err => console.log(err));
-    debugger; 
+    debugger;
 
     //fetch
     await fetch(`http://localhost:4000/posts/${id}`, {
@@ -110,20 +110,28 @@ function App() {
 
   return (
     <div className="App">
+      <div className='row mt-4'>
+        <div className='col-sm-8'>
 
-      <AddUser
-        formData={formData}
-        setFormData={setFormData}
-        handleFormSubmit={handleFormSubmit}
-      />
-      <UserDashboard
-        data={data}
-        getUserData={getUserData}
-        handleDelete={handleDelete}
-        editData={editData}
-        setEditData={setEditData}
-        handleEditData={handleEditData}
-      />
+          <UserDashboard
+            data={data}
+            getUserData={getUserData}
+            handleDelete={handleDelete}
+            editData={editData}
+            setEditData={setEditData}
+            handleEditData={handleEditData}
+          />
+        </div>
+        <div className='col-sm-4'>
+          <AddUser
+            formData={formData}
+            setFormData={setFormData}
+            handleFormSubmit={handleFormSubmit}
+          />
+
+        </div>
+
+      </div>
     </div>
   );
 }
