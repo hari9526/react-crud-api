@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import UpdateUser from './UpdateUser';
+import { Space, Table, Tag } from 'antd';
 
 const UserDashboard = ({ data, getUserData, handleDelete, handleEditData, setEditData, editData }) => {
 
@@ -8,9 +9,64 @@ const UserDashboard = ({ data, getUserData, handleDelete, handleEditData, setEdi
         getUserData();
     }, []);
 
+    const columns = [
+        {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+            render: (text) => <a>{text}</a>,
+        },
+        {
+            title: 'Email',
+            dataIndex: 'email',
+            key: 'email',
+            render: (text) => <a>{text}</a>,
+        },
+        {
+            title: 'Email',
+            dataIndex: 'email',
+            key: 'email',
+            render: (text) => <a>{text}</a>,
+        },
+        {
+            title: 'Actions',
+            dataIndex: 'action',
+            key: 'action',
+            render: (user) => <>
+                <button className='btn btn-info'
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    onClick={() => {
+                        setEditData({
+                            id: user.id,
+                            name: user.name,
+                            email: user.email,
+                        });
+                    }}
+                >
+                    Edit
+                </button>
+                <button className='btn btn-danger' onClick={() => handleDelete(user.id)}>Delete</button>
+            </>,
+        },
+    ]; 
+
+    const tableData = []; 
+
+    for(let i = 0; i < data.length; i ++){
+        debugger; 
+        tableData.push({
+            key : i.id, 
+            name : i.name, 
+            email : i.email, 
+        }); 
+    }
+
     return (
         <div>
             <h1>User Dashboard</h1>
+            <Table columns={columns} dataSource={tableData} />
+
             <table className="table table-hover">
                 <thead>
                     <tr>
