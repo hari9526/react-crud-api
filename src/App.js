@@ -12,7 +12,6 @@ const initialData = {
 };
 
 
-
 function App() {
 
   const [data, setData] = useState([]);
